@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/banner/banner.png" alt="Kitty Finance: suas finanças com carinho" width="100%"></p>
+
 # Kitty Finance ♥
 
 **No ar:** https://kitty-finance-eta.vercel.app (clique em "Explorar a demonstração" para ver com dados de exemplo)
