@@ -71,7 +71,7 @@ export function LoginPage() {
           <p className="mt-4 max-w-md text-white/85">Receitas, gastos, contas e metas no mesmo lugar, com gráficos claros e lembretes na hora certa.</p>
           <ul className="mt-8 grid max-w-md gap-3 text-sm font-semibold">
             {[
-              [ShieldCheck, 'Seus dados ficam guardados na sua máquina, protegidos por senha'],
+              [ShieldCheck, 'Seus dados ficam privados, protegidos por login e senha'],
               [ChartPie, 'Relatórios e gráficos atualizados na hora'],
               [Target, 'Metas com progresso e aportes'],
             ].map(([Icon, text], i) => {

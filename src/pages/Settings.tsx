@@ -263,7 +263,7 @@ export function SettingsPage() {
         )}
 
         <Card>
-          <CardTitle title="Seus dados" icon={Download} subtitle="Os dados ficam salvos no banco local desta máquina" />
+          <CardTitle title="Seus dados" icon={Download} subtitle="Baixe um backup ou recomece do zero" />
           <div className="grid gap-2">
             <Button variant="secondary" icon={Download} onClick={exportData} className="justify-start">Baixar backup (JSON)</Button>
             {user.isDemo && <Button variant="secondary" icon={RotateCcw} onClick={resetDemo} className="justify-start">Restaurar dados de demonstração</Button>}
