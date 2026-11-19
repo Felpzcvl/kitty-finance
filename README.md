@@ -1,5 +1,7 @@
 # Kitty Finance ♥
 
+**No ar:** https://kitty-finance-eta.vercel.app (clique em "Explorar a demonstração" para ver com dados de exemplo)
+
 Controle financeiro pessoal com visual delicado em rosa pastel, laços e uma gatinha mascote original.
 
 Receitas, despesas, contas a pagar, metas, relatórios e calendário financeiro, com login e dados salvos de verdade.
