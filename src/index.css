@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- tokens de cor (claro) ---------- */
+:root {
+  --app: #fff6f9;
+  --card: #ffffff;
+  --soft: #fff0f5;
+  --ink: #3b2730;
+  --muted: #8d6f7c;
+  --line: #f7dbe6;
+
+  --brand-50: #fff1f6;
+  --brand-100: #ffe3ee;
+  --brand-200: #ffc8dc;
+  --brand-300: #ffa1c3;
+  --brand-400: #f879a8;
+  --brand-500: #ec5a92;
+  --brand-600: #d6407a;
+  --brand-700: #b02e62;
+
+  --cherry: #e0475e;
+  --ok: #2fa27a;
+  --ok-soft: #e3f6ee;
+  --warn: #d98a1c;
+  --warn-soft: #fff1dc;
+  --bad: #e0475e;
+  --bad-soft: #ffe4e8;
+  --info: #5b8def;
+  --info-soft: #e6eeff;
+
+  color-scheme: light;
+}
+
+[data-accent="morango"] {
+  --brand-50: #fff1f1;
+  --brand-100: #ffe1e3;
+  --brand-200: #ffc5ca;
+  --brand-300: #ff9ca5;
+  --brand-400: #f8737f;
+  --brand-500: #e9515f;
+  --brand-600: #cf3848;
+  --brand-700: #a82838;
+}
+
+[data-accent="lavanda"] {
+  --brand-50: #f8f3ff;
+  --brand-100: #efe5ff;
+  --brand-200: #dfcbff;
+  --brand-300: #c8a6fb;
+  --brand-400: #b083f2;
+  --brand-500: #9a64e4;
+  --brand-600: #8249cc;
+  --brand-700: #6936a6;
+}
+
+/* ---------- tokens de cor (escuro) ---------- */
+.dark {
+  --app: #1b1217;
+  --card: #261920;
+  --soft: #321f29;
+  --ink: #fbe9f0;
+  --muted: #c4a2b1;
+  --line: #43303a;
+  --ok-soft: #173a2e;
+  --warn-soft: #3d2c12;
+  --bad-soft: #43202a;
+  --info-soft: #1d2a47;
+  color-scheme: dark;
+}
+.dark [data-accent], .dark {
+  --brand-50: color-mix(in oklab, var(--brand-500) 14%, var(--card));
+  --brand-100: color-mix(in oklab, var(--brand-500) 22%, var(--card));
+}
+
+@theme inline {
+  --color-app: var(--app);
+  --color-card: var(--card);
+  --color-soft: var(--soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-cherry: var(--cherry);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-display: "Quicksand", "Nunito", ui-rounded, system-ui, sans-serif;
+}
+
+@utility shadow-soft {
+  box-shadow: 0 1px 2px rgb(176 46 98 / 0.04), 0 10px 30px -14px rgb(176 46 98 / 0.22);
+}
+.dark .shadow-soft {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 30px -16px rgb(0 0 0 / 0.6);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--app);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fundo com corações bem sutis */
+.bg-hearts {
+  background-image:
+    radial-gradient(circle at 12% 8%, color-mix(in oklab, var(--brand-200) 45%, transparent) 0, transparent 38%),
+    radial-gradient(circle at 92% 0%, color-mix(in oklab, var(--brand-100) 70%, transparent) 0, transparent 30%);
+  background-attachment: fixed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-400);
+  outline-offset: 2px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-fade-up { animation: fade-up 0.35s ease-out both; }
+.animate-pop-in { animation: pop-in 0.22s ease-out both; }
+.animate-slide-in { animation: slide-in 0.25s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Recharts: sem contorno de foco nos gráficos */
+.recharts-wrapper *:focus { outline: none; }
+
+/* inputs de data com ícone da cor certa no escuro */
+.dark input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8); }
